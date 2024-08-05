@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+.wrapper {
+  width: 50%;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+header {
+  background: #001e28;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.match-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  background-image: url("../img/imgfootball.jpeg");
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+
+.team-home,
+.team-away {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.team-home-info,
+.team-away-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.team-logo {
+  width: 50px;
+  height: 50px;
+}
+
+.team-name {
+  color: white;
+  font-size: 25px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.team-name:hover {
+  text-decoration: underline;
+}
+
+.match-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+}
+
+.match-season {
+  font-size: 1.2em;
+  color: white;
+}
+
+.match-score {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.match-status {
+  font-size: 1em;
+  color: white;
+}
+
+.additional-info {
+  padding: 20px;
+}
+
+.info-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.info-tabs li {
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  background: #f9f9f9;
+  transition: background 0.3s;
+}
+
+.info-tabs li:hover {
+  background: #eee;
+}
+
+.info-tabs .active {
+  background: #001e28;
+  color: white;
+}
+
+.tab-content {
+  display: none;
+  padding: 10px;
+}
+
+.tab-content.active {
+  display: block;
+}

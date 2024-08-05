@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/details.css">
+    <title>Détails du Club</title>
+  </head>
+  <body>
+
+    <div class="container">
+      <h1 >Détails des différentes saisons jouées pour {{ team_name }}</h1>
+      {% if team_data %}
+      <table id="customers" border="1">
+        <tr>
+          <th>Season</th>
+          <th>Goals Scored</th>
+          <th>Goals Against</th>
+          <th>Wins</th>
+          <th>Losses</th>
+          <th>Ties</th>
+        </tr>
+        {% for data in team_data %}
+        <tr>
+          <td>{{ data.Season }}</td>
+          <td>{{ data.GoalsScored }}</td>
+          <td>{{ data.GoalsAgainst }}</td>
+          <td>{{ data.Win }}</td>
+          <td>{{ data.Loss }}</td>
+          <td>{{ data.Tie }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      {% else %}
+      <p>Aucune donnée disponible pour cette équipe.</p>
+      {% endif %}
+     
+    </div>
+  </body>
+</html>

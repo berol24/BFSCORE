@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: #001e28;
+  color: white;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.header-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-item li {
+  font-size: 18px;
+}
+
+.navigation {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.navigation-icon {
+  background: #0f2d37;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container {
+  width: 80%;
+  margin: 20px auto;
+}
+
+#form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#season-select {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#btn {
+  padding: 10px 20px;
+  background-color: #001e28;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.display-section {
+  display: flex;
+  gap: 20px;
+}
+
+.display-segment {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.segment-1,
+.segment-3 {
+  width: 20%;
+}
+
+.segment-2 {
+  width: 100%;
+}
+
+.match-schedule {
+  width: 100%;
+}
+
+.match-list {
+  list-style-type: none;
+}
+
+.match-item {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  border-bottom: 1px solid gray;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.match-item:hover {
+  background-color: #f0f0f0;
+}
+
+.match-details {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.wrap-team {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wrap-team p{
+  font-weight: bold;
+}
+
+.home-team,
+.away-team,
+.score {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  width: 33%;
+}
+.away-team {
+  justify-content: end;
+}
+.score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mt-3 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #001e28;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #0f2d37;
+}

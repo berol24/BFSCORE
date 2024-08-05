@@ -1,0 +1,10 @@
+services:
+  app: 
+    image: bfscore:v1
+    container_name: mybfscore
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports: 
+        - "5000:5000"
+        

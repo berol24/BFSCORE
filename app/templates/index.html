@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/static/img/logo.png">
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <title>BFSCORE</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="header-title">BFSCORE</div>
+        <div class="header-menu">
+          <ul class="menu-item">
+            <ion-icon name="football-outline"></ion-icon>
+            <li>RÉSULTATS</li>
+          </ul>
+          <ul class="menu-item">
+            <ion-icon name="newspaper-outline"></ion-icon>
+            <li>ACTUALITÉS</li>
+          </ul>
+        </div>
+      </div>
+      <nav class="navigation">
+        <ion-icon class="navigation-icon" name="search-outline"></ion-icon>
+        <ion-icon class="navigation-icon" name="menu-outline"></ion-icon>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div id="">
+        <form id="form" action="/annee">
+          <select name="annee" id="season-select" required></select>
+          <input id="btn" type="submit" value="Chercher" />
+        </form>
+      </div>
+      <section class="display-section">
+        <div class="display-segment segment-2">
+          <div class="match-schedule">
+            <ul class="match-list" id="match-list">
+              {% for match in matches %}
+              <li onclick="window.location.href='/info/{{ match.Match_ID }}'" class="match-item">
+                <div class="flex">
+                  <ion-icon name="star-outline"></ion-icon>
+                  <div class="match-time">Terminé</div>
+                </div>
+                <div class="match-details">
+                  <div class="home-team">
+                    <div class="wrap-team">
+                      <img src="https://placehold.jp/18x18.png" alt="" />
+                      <p>{{ match.HomeTeam }}</p>
+                    </div>
+                  </div>
+                  <div class="score">
+                    <p>{{ match.FTHG }}</p>
+                    <span style="margin: 0 30px;">-</span>
+                    <p>{{ match.FTAG }}</p>
+                  </div>
+                  <div class="away-team">
+                    <div class="wrap-team">
+                      <p>{{ match.AwayTeam }}</p>
+                      <img src="https://placehold.jp/18x18.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              {% endfor %}
+            </ul>
+            
+          </div>
+        </div>
+      </section>
+
+      <div class="mt-3">
+        <button id="load-more" class="btn btn-primary" data-offset="20">
+          Voir plus
+        </button>
+        <button id="load-moins" class="btn btn-secondary" data-offset="20">
+          Voir moins
+        </button>
+      </div> 
+      <ul id="match-list"> 
+      </ul>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="/static/js/script.js"></script>
+  </body>
+</html>

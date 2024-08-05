@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/css/info.css" />
+  <title>Détails du Match</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="header-container">
+        <div class="header-title">BFSCORE</div>
+      </div>
+    </header>
+
+    <div class="match-container">
+      <div class="team-home">
+        <div class="team-home-info">
+          <ion-icon name="star-outline"></ion-icon>
+          <img src="../static/img/logo_PSG.jpeg" alt="Logo" class="team-logo" />
+        </div>
+        <p>
+          <a href="/team/{{ match.HomeTeam }}" class="team-name">
+            {{ match.HomeTeam }}</a>
+          {% if match.FTHG > match.FTAG %}
+          <ion-icon style="color: #d6a51e; font-size: 25px; font-weight: bold" name="trophy-outline"></ion-icon>
+          {% endif %}
+        </p>
+      </div>
+
+      <div class="match-info">
+        <p class="match-season">
+          {{ match.Season }}
+        </p>
+        <div class="match-score">
+          <span class="home-score"><strong>
+              {{ match.FTHG }}</strong></span>
+          <span><strong>-</strong></span>
+          <span class="away-score"><strong>
+              {{ match.FTAG }}</strong></span>
+        </div>
+        <p class="match-status">TERMINÉ</p>
+      </div>
+
+      <div class="team-away">
+        <div class="team-away-info">
+          <img src="../static/img/logo_real_madrid.png" alt="Logo" class="team-logo" />
+          <ion-icon name="star-outline"></ion-icon>
+        </div>
+        <p>
+          {% if match.FTHG < match.FTAG %}
+          <ion-icon style="color: #d6a51e; font-size: 25px; font-weight: bold" name="trophy-outline"></ion-icon>
+          {% endif %}
+          <a href="/team/{{ match.AwayTeam }}" class="team-name">
+            {{ match.AwayTeam }}</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="additional-info">
+      <ul class="info-tabs">
+        <li class="tab-summary active" onclick="showTab('resume')">Résumé</li>
+        <li class="tab-tat" onclick="showTab('tat')">TàT</li>
+      </ul>
+      <div id="resume" class="tab-content active">
+        Lors d'un match de Bundesliga,
+        {% if match.FTHG > match.FTAG %}
+        <strong>
+          {{ match.HomeTeam }}</strong> a triomphé face à <strong>
+          {{ match.AwayTeam }}</strong>
+        {% elif match.FTHG < match.FTAG %}
+        <strong>
+          {{ match.AwayTeam }}</strong> a triomphé face à <strong>
+          {{ match.HomeTeam }}</strong>
+        {% else %}
+        <strong>
+          {{ match.HomeTeam }}</strong> et <strong>
+          {{ match.AwayTeam }}</strong> ont fait match nul
+        {% endif %} avec un score de <strong>
+          {{ match.FTHG }}-
+          {{ match.FTAG }}</strong>.
+
+        {% if match.FTHG > match.FTAG %}
+        Le <strong>
+          {{ match.HomeTeam }}</strong>, jouant à domicile, a dominé le match dès le début, montrant pourquoi
+        ils sont souvent considérés comme l'une des équipes les plus redoutables d'Europe.
+        {% elif match.FTHG < match.FTAG %}
+        Le <strong>
+          {{ match.AwayTeam }}</strong>, jouant à l'extérieur, a dominé le match dès le début, montrant
+        pourquoi ils sont souvent considérés comme l'une des équipes les plus redoutables d'Europe.
+        {% else %}
+        Les deux équipes ont montré des performances équilibrées, rendant le match passionnant et démontrant leur niveau
+        de compétence élevé.
+        {% endif %}
+      </div>
+
+      <div id="tat" class="tab-content">
+        <h2>Saisons antérieures où les équipes se sont rencontrées :</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-top: 25px">
+          {% if previous_seasons %} {% for season in previous_seasons %}
+          <p style="background: #001e28; color: white; padding: 3px">
+            {{ season }}
+          </p>
+          {% endfor %} {% else %}
+          <p>Aucune saison antérieure jouée.</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="/static/js/script.js"></script>
+  </div>
+</body>
+
+</html>
